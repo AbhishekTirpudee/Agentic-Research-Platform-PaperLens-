@@ -17,17 +17,6 @@ This application is designed for a **Zero-Trust AWS Cloud** environment:
 
 ---
 
-## 💡 Architecture & Security FAQ
-
-**Q: Why use LangGraph instead of standard LangChain?**
-> Standard AI chains are linear and prone to infinite execution loops if the LLM becomes confused. By using LangGraph, I built a deterministic state machine. The user input is explicitly routed from a `Classification Node` to a `Research Node` via predefined edges. This guarantees predictable API usage and prevents the AI from deviating from its assigned task.
-
-**Q: How do you protect the LLM from Prompt Injection?**
-> Defense in depth. Before a payload is ever passed to the LangGraph execution environment, it is intercepted by a custom Node.js middleware layer. Using Regex, the AppSec layer scans for jailbreak patterns (e.g., "ignore previous instructions"). If detected, the request is dropped with a `400 Bad Request` instantly.
-
-**Q: Why is LangSmith integrated into this project?**
-> In enterprise environments, LLM calls cannot be a "black box." LangSmith provides full telemetry. It logs the exact inputs, the latency of each LangGraph node, and the final output, creating an immutable audit trail for compliance and debugging.
-
 ## 💻 Local Setup
 1. Clone the repository.
 2. Install dependencies: `cd frontend && npm install` and `cd backend && npm install`.
