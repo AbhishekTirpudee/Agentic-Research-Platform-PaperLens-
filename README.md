@@ -11,7 +11,7 @@ A production-grade, secure AI orchestration platform. PaperLens utilizes **LangG
 
 ## ☁️ AWS Cloud Security Deployment Blueprint
 This application is designed for a **Zero-Trust AWS Cloud** environment:
-1. **Edge Defense (AWS WAF & CloudFront):** Traffic is routed through an Application Load Balancer (ALB) protected by AWS WAF. Managed rule sets instantly drop OWASP Top 10 exploits (e.g., XSS) before reaching the compute layer.
+1. **Edge Defense (AWS WAF):** Traffic is routed through an Application Load Balancer (ALB) protected by AWS WAF. Managed rule sets instantly drop OWASP Top 10 exploits (e.g., XSS) before reaching the compute layer.
 2. **Network Isolation (Amazon VPC):** The Express backend runs on AWS Fargate inside a **Private Subnet** with no public IP, rendering it completely inaccessible from the public internet.
 3. **Secrets Governance (AWS Secrets Manager):** LangSmith and Foundation Model API keys are never stored in the environment permanently; they are injected dynamically at runtime via IAM Task Roles.
 
